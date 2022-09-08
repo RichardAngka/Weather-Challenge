@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Weather-Challenge/static/css/main.600d2ba2.css",
+    "main.js": "/Weather-Challenge/static/js/main.f69a4c9e.js",
+    "static/js/787.3c8fe671.chunk.js": "/Weather-Challenge/static/js/787.3c8fe671.chunk.js",
+    "index.html": "/Weather-Challenge/index.html",
+    "main.600d2ba2.css.map": "/Weather-Challenge/static/css/main.600d2ba2.css.map",
+    "main.f69a4c9e.js.map": "/Weather-Challenge/static/js/main.f69a4c9e.js.map",
+    "787.3c8fe671.chunk.js.map": "/Weather-Challenge/static/js/787.3c8fe671.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.600d2ba2.css",
+    "static/js/main.f69a4c9e.js"
+  ]
+}
