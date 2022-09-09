@@ -1,11 +1,13 @@
 interface SearchBoxPropsType {
   inputText: string;
   setInputText: (value: string) => void;
+  handleSearch: () => void;
 }
 
 const SearchBox: React.FC<SearchBoxPropsType> = ({
   inputText,
   setInputText,
+  handleSearch,
 }) => {
   let inputHandler = (e: { target: { value: string } }) => {
     //convert input text to lower case
@@ -22,11 +24,12 @@ const SearchBox: React.FC<SearchBoxPropsType> = ({
         value={inputText}
       />
       {/* {inputText.length !== 0 && <List input={inputText} />} */}
-      {/* <button
+      <button
         className="bg-slate-200 p-2 ml-2 rounded-md"
+        onClick={handleSearch}
       >
         Submit
-      </button> */}
+      </button>
     </div>
   );
 };

@@ -9,7 +9,6 @@ const MainWeather = () => {
   const [dataSearch, setDataSearch] = useState({});
   const [userPos, setUserPos] = useState({ longitude: 0, latitude: 0 });
   const [userSearchPos, setUserSearchPos] = useState({ lon: null, lat: null });
-  const getSearchDataRef = useRef(() => {});
   useEffect(() => {
     const getLocation = () => {
       if (navigator.geolocation) {
@@ -31,10 +30,10 @@ const MainWeather = () => {
   }, []);
 
   const { data: currentLocationData, loading } = useHttpReq({
-    path: `https://api.openweathermap.org/data/2.5/weather?lat=${userPos.latitude}&lon=${userPos.longitude}&units=metric&cnt=4&exclude=hourly,daily&appid=5de4a6ec6543ab88d748702df62f9851`,
+    path: `https://api.openweathermap.org/data/2.5/weather?lat=${userPos.latitude}&lon=${userPos.longitude}&units=metric&cnt=7x&exclude=hourly,daily&appid=5de4a6ec6543ab88d748702df62f9851`,
   });
 
-  getSearchDataRef.current = () => {
+  const getSearchData = () => {
     if (inputText) {
       axios
         .get(
@@ -51,15 +50,16 @@ const MainWeather = () => {
         .then((res) => setDataSearch(res.data));
     }
   };
-  useEffect(() => {
-    getSearchDataRef.current();
-  }, []);
 
   if (loading) return null;
 
   return (
     <>
-      <SearchBox inputText={inputText} setInputText={setInputText} />
+      <SearchBox
+        inputText={inputText}
+        setInputText={setInputText}
+        handleSearch={getSearchData}
+      />
       <WeatherCard data={currentLocationData} />
       {dataSearch && <WeatherCard data={dataSearch} />}
     </>
